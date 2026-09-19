@@ -22,7 +22,11 @@ function App() {
   const exitTimerRef = useRef(null);
   const hasStartedExitRef = useRef(false);
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark';
+    // Strictly default to light mode on initial load
+    // Only use dark if the user explicitly clicked the toggle button
+    const userSelected = localStorage.getItem('portfolio-theme-user-selected');
+    if (userSelected === 'dark') return 'dark';
+    return 'light';
   });
 
   const [currentView, setCurrentView] = useState(() => {
@@ -34,7 +38,6 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
 
   useEffect(() => {
@@ -66,7 +69,11 @@ function App() {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+    setTheme(prev => {
+      const nextTheme = prev === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('portfolio-theme-user-selected', nextTheme);
+      return nextTheme;
+    });
   };
 
   const handleIntroStartExit = useCallback(() => {

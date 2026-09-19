@@ -162,7 +162,7 @@ export default function OpeningIntro({ onStartExit, onComplete }) {
         {/* Small label above */}
         <div className="tw-label">
           <span className="tw-label-line" />
-          <span className="tw-label-text">PORTFOLIO · 2026</span>
+          <span className="tw-label-text">Helloo</span>
           <span className="tw-label-line" />
         </div>
 
