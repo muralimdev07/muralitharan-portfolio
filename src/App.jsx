@@ -38,6 +38,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme === 'light' ? 'only light' : 'dark';
   }, [theme]);
 
   useEffect(() => {
