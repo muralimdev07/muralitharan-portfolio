@@ -1965,12 +1965,12 @@
 /* Doodle Effect 2: 3 Radiant Orange Ticks Positioned on Corner of Black Frame */
 .about-portrait-doodle {
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -34px;
+  right: -30px;
   z-index: 15;
   pointer-events: none;
   color: #ea580c;
-  filter: drop-shadow(0 0 5px rgba(234, 88, 12, 0.7));
+  filter: drop-shadow(0 0 6px rgba(234, 88, 12, 0.7));
   transition: transform 0.2s ease;
 }
 
@@ -1982,6 +1982,8 @@
 .about-portrait-doodle-svg {
   overflow: visible;
   display: block;
+  width: 52px;
+  height: 52px;
 }
 
 /* Framed Tablet / Card with Bezel - Compact & Tilted like reference */
@@ -2304,8 +2306,8 @@
   }
 
   .about-portrait-doodle {
-    right: -12px;
-    top: -12px;
+    right: -28px;
+    top: -32px;
     transform: scale(0.95);
     z-index: 15;
   }
@@ -2363,7 +2365,11 @@
   }
 
   .about-portrait-doodle {
-    display: none !important;
+    display: block !important;
+    top: -28px;
+    right: -26px;
+    transform: scale(0.85);
+    z-index: 15;
   }
 
   .hanging-portrait-card {

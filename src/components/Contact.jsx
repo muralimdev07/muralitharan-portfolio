@@ -34,15 +34,11 @@ export default function Contact() {
 
     setIsSending(true);
 
-    const recipientEmail = "muralitharandev@gmail.com";
-    const subject = encodeURIComponent(formData.subject || `New Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject || 'General Inquiry'}\n\nMessage:\n${formData.message}`
-    );
+    // FormSubmit unique hash token to securely route to muralitharandev@gmail.com without exposing email to scrapers
+    const formSubmitEndpoint = "https://formsubmit.co/ajax/354c0c9164cf24a5b7a852240ffe7017";
 
     try {
-      // Send real email via FormSubmit AJAX service directly to muralitharandev@gmail.com
-      await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+      const res = await fetch(formSubmitEndpoint, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -54,23 +50,20 @@ export default function Contact() {
           subject: formData.subject || `Portfolio Inquiry from ${formData.name}`,
           message: formData.message,
           _subject: `Portfolio message from ${formData.name}: ${formData.subject || 'General Inquiry'}`,
+          _replyto: formData.email,
+          _captcha: "false",
           _template: 'table'
         })
       });
+
+      if (!res.ok) {
+        console.warn("FormSubmit response status:", res.status);
+      }
     } catch (err) {
-      console.warn("Direct form post fallback:", err);
+      console.warn("Contact form submission error:", err);
     } finally {
       setIsSending(false);
       setSubmitted(true);
-
-      // Also trigger mailto as fallback so muralitharandev@gmail.com receives it in mail client if popup allowed
-      const mailtoUrl = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-      const mailLink = document.createElement('a');
-      mailLink.href = mailtoUrl;
-      mailLink.style.display = 'none';
-      document.body.appendChild(mailLink);
-      mailLink.click();
-      document.body.removeChild(mailLink);
 
       // Reset form after 6 seconds
       setTimeout(() => {

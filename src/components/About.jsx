@@ -103,23 +103,23 @@ export default function About() {
                   transform: `rotate(${cardTilt}deg)`,
                 }}
               >
-                {/* Decorative 3-Spark Ticks (Placed directly at upper-right corner of black frame) */}
+                {/* Decorative 3-Spark Ticks (Placed cleanly outside upper-right corner of black frame) */}
                 <div className="about-portrait-doodle" aria-hidden="true">
                   <svg
-                    width="44"
-                    height="44"
-                    viewBox="0 0 44 44"
+                    width="52"
+                    height="52"
+                    viewBox="0 0 52 52"
                     fill="none"
                     className="about-portrait-doodle-svg"
                   >
-                    {/* 3 Radiating Orange Accent Lines Originating Cleanly from Corner */}
+                    {/* 3 Radiating Orange Accent Lines Centered Right Above Corner */}
                     <g className="doodle-spark-group">
                       {/* Line 1: Slanted Upward */}
-                      <path d="M12 24L8 6" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
+                      <path d="M18 24L12 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                       {/* Line 2: Diagonal Up-Right */}
-                      <path d="M22 22L36 8" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
-                      {/* Line 3: Diagonal Down-Right */}
-                      <path d="M26 30L40 38" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
+                      <path d="M26 24L44 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      {/* Line 3: Slanted Rightward */}
+                      <path d="M28 32L46 34" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                     </g>
                   </svg>
                 </div>
