@@ -38,7 +38,12 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.style.colorScheme = theme === 'light' ? 'only light' : 'dark';
+    const schemeVal = theme === 'dark' ? 'dark' : 'only light';
+    document.documentElement.style.colorScheme = schemeVal;
+    const metaTag = document.getElementById('meta-color-scheme');
+    if (metaTag) {
+      metaTag.setAttribute('content', schemeVal);
+    }
   }, [theme]);
 
   useEffect(() => {
