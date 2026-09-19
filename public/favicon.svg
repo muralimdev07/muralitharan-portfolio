@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="muraliLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7a18" />
+      <stop offset="60%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#c2410c" />
+    </linearGradient>
+    <filter id="mDropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="rgba(0,0,0,0.3)" />
+    </filter>
+  </defs>
+
+  <!-- Orange Squircle Brand Emblem -->
+  <rect x="2" y="2" width="60" height="60" rx="16" ry="16" fill="url(#muraliLogoGrad)" stroke="rgba(255, 255, 255, 0.28)" stroke-width="1.5" />
+
+  <!-- Bold White 'M' Emblem -->
+  <path
+    d="M 14 48 L 14 16 L 23 16 L 32 32 L 41 16 L 50 16 L 50 48 L 42 48 L 42 27 L 35 39 L 29 39 L 22 27 L 22 48 Z"
+    fill="#ffffff"
+    filter="url(#mDropShadow)"
+  />
+</svg>

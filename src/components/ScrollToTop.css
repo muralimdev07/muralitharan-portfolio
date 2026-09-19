@@ -1,0 +1,179 @@
+/* =========================================================
+   SCROLL TO TOP (UP ARROW) FLOATING BUTTON
+   ========================================================= */
+
+.scroll-to-top-wrapper {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.82);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s ease;
+  pointer-events: none;
+}
+
+.scroll-to-top-wrapper.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.scroll-to-top-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 88, 12, 0.28);
+  background: rgba(14, 11, 20, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ff8a1e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+              0 0 20px rgba(234, 88, 12, 0.22);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  outline: none;
+}
+
+[data-theme="light"] .scroll-to-top-btn {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(234, 88, 12, 0.32);
+  color: #ea580c;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.16),
+              0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.scroll-to-top-btn:hover {
+  transform: translateY(-4px);
+  border-color: #ea580c;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 
+              0 0 28px rgba(234, 88, 12, 0.5);
+}
+
+[data-theme="light"] .scroll-to-top-btn:hover {
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.3),
+              0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.scroll-to-top-btn:active {
+  transform: translateY(-1px) scale(0.94);
+}
+
+/* Circular SVG Progress Ring */
+.scroll-progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Start progress from 12 o'clock */
+  pointer-events: none;
+}
+
+.progress-track {
+  stroke: rgba(255, 255, 255, 0.1);
+  transition: stroke 0.2s ease;
+}
+
+[data-theme="light"] .progress-track {
+  stroke: rgba(234, 88, 12, 0.12);
+}
+
+.progress-fill {
+  stroke: #ea580c;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s ease-out;
+  filter: drop-shadow(0 0 6px rgba(234, 88, 12, 0.6));
+}
+
+[data-theme="light"] .progress-fill {
+  stroke: #ea580c;
+  filter: drop-shadow(0 0 4px rgba(234, 88, 12, 0.4));
+}
+
+/* Up Arrow Icon */
+.scroll-arrow-icon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.2s ease;
+}
+
+.scroll-to-top-btn:hover .scroll-arrow-icon {
+  transform: translateY(-2px);
+  color: #ff9d42;
+}
+
+[data-theme="light"] .scroll-to-top-btn:hover .scroll-arrow-icon {
+  color: #c2410c;
+}
+
+/* Tooltip on Hover */
+.scroll-top-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(14, 11, 20, 0.94);
+  border: 1px solid rgba(234, 88, 12, 0.35);
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+[data-theme="light"] .scroll-top-tooltip {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(234, 88, 12, 0.28);
+  color: #1c1917;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.14);
+}
+
+.scroll-to-top-btn:hover .scroll-top-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .scroll-to-top-wrapper {
+    bottom: 22px;
+    right: 20px;
+  }
+
+  .scroll-to-top-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .scroll-top-tooltip {
+    display: none;
+  }
+}
