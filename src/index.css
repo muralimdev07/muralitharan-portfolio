@@ -2,6 +2,17 @@
 
 :root {
   color-scheme: only light;
+
+  /* Geometry & Radius Tokens */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Motion & Transition Tokens */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="dark"] {
@@ -73,8 +84,17 @@
   --glass-border: rgba(234, 88, 12, 0.16);
   --glass-hover-border: rgba(234, 88, 12, 0.5);
 
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
   --shadow-sm: 0 6px 25px rgba(234, 88, 12, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);
   --shadow-accent-glow: 0 0 35px rgba(234, 88, 12, 0.2);
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* ABOUT SECTION THEME VARS (Light) */
   --about-surface-bg: #ffffff;
